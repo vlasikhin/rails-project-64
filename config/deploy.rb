@@ -14,7 +14,7 @@ set :rbenv_ruby, "3.2.0"
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
-set :linked_files, fetch(:linked_files, []).push("config/database.yml", "config/master.key", "config/credentials.yml.enc")
+set :linked_files, fetch(:linked_files, []).push("config/master.key", "config/credentials.yml.enc")
 
 namespace :deploy do
   desc "Start application"
