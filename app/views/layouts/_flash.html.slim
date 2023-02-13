@@ -1,0 +1,13 @@
+.container
+  .row.justify-content-md-center
+    .col-8.text-center
+      - flash.each do |key, value|
+        - case key
+        - when "notice"
+          = content_tag :div, value, class: "alert alert-success"
+        - when "alert"
+          = content_tag :div, value, class: "alert alert-danger"
+        - when "warning"
+          = content_tag :div, value, class: "alert alert-warning"
+        - else
+          = content_tag :div, value, class: "alert alert-info"
