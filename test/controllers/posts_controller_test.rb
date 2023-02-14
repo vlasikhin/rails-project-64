@@ -31,8 +31,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
+    sign_in(@user)
     post posts_url, params: { post: @attrs }
-    assert_response :redirect
+
+    assert_redirected_to post_url(Post.last)
 
     post = Post.find_by(title: @attrs[:title])
     assert { post }
@@ -45,9 +47,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get update" do
+    sign_in(@user)
     patch post_url(@post), params: { post: @attrs }
 
-    assert_response :redirect
+    assert_redirected_to post_url(@post)
 
     @post.reload
 
