@@ -40,7 +40,9 @@ namespace :deploy do
 
   desc "reload the database with seed data"
   task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+    on roles(:app) do
+      execute "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+    end
   end
 
   after :publishing, :restart
