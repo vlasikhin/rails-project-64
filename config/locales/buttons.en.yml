@@ -3,3 +3,9 @@ en:
     sign_in: "Sign in"
     sign_up: "Sign up"
     sign_out: "Sign out"
+  posts:
+    new: "New post"
+    edit: "Edit post"
+    delete: "Delete post"
+    show: "Show post"
+    index: "Posts"
