@@ -1,6 +1,18 @@
 nav.navbar.navbar-expand.navbar-dark.bg-dark.sticky-top
   .container.container-fluid
     = link_to "RailsProject64", root_path, class: "navbar-brand"
+    .collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        - if signed_in?
+          li.nav-item
+            = link_to t("posts.index"), posts_path, class: "nav-link"
+        - else
+          li.nav-item
+            = link_to t("posts.index"), posts_path, class: "nav-link"
+    .collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+       li.nav-item
+          = link_to t("posts.new"), new_post_path, class: "nav-link active"
     .row
       .d-flex
         .btn-group
