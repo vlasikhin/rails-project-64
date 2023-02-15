@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
 
     if @comment.save
-      flash[:success] = t("comments.create.success")
+      flash[:success] = t(".success")
       redirect_to @post
     else
       flash.now[:error] = @comment.errors.first.full_message
