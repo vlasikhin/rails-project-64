@@ -9,8 +9,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     sign_in(@user)
 
     @attrs = {
-      title: Faker::Books::Dune.title,
-      body: Faker::Books::Dune.quote,
+      title: [Faker::Books::Dune.title, Faker::Books::Dune.title].join(" "),
+      body: [Faker::Books::Dune.quote, Faker::Books::Dune.quote].join(" "),
       category_id: categories(:arrakis).id
     }
   end
