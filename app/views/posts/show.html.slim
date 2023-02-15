@@ -4,23 +4,39 @@ h1 = @post.title
 
 p = @post.body
 
-hr
+p.lead#comment-section
+  span = t(".comments")
+  - if user_signed_in?
+    = simple_form_for @comment, url: post_comments_path(@post) do |f|
+      = f.input :content, as: :text, label: false
+      = f.input :parent_id, as: :hidden, input_html: { value: nil }
+      = f.button :submit, class: "btn-primary mt-2"
 
-div
-  - if current_user == @post.creator
-    .row
-      .d-flex
-        .col-md-8
-        .col-md-6
-          .btn-group
-            = link_to "Back to posts", posts_path, class: "btn btn-outline-primary btn-sm"
-            = link_to "Edit this post", edit_post_path(@post), class: "btn btn-outline-warning btn-sm"
-            = link_to "Destroy this post", @post, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm"
-
-  -else
-    .row
-      .d-flex
-        .col-md-8
-        .col-md-6
-          .btn-group
-            = link_to "Back to posts", posts_path, class: "btn btn-primary btn-sm"
+  - @comments.each do |comment|
+    br
+    .card[id="comment-#{comment.id}"]
+      .card-body
+        h5.card-title
+          = comment.user.username
+        h6.card-subtitle.mb-2.text-muted.fs-6
+          = l(comment.created_at, format: :short)
+        p.card-text = comment.content
+        = render "posts/comment_form", comment: comment if user_signed_in?
+        = render "posts/comments", comment: comment if comment.children.any?
+br
+- if current_user == @post.creator
+  .row
+    .d-flex
+      .col-md-8
+      .col-md-4
+        .btn-group
+          = link_to t("posts.edit"), edit_post_path(@post), class: "btn btn-outline-warning btn-sm"
+          = link_to t("posts.delete"), @post, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm"
+          = link_to "Back", posts_path, class: "btn btn-outline-primary btn-sm"
+- else
+  .row
+    .d-flex
+      .col-md-10
+      .col-md-2
+        .btn-group
+          = link_to "Back", posts_path, class: "btn btn-primary btn-sm"

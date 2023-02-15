@@ -7,7 +7,10 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @comments = @post.comments.roots.latest
+    @comment = current_user&.comments&.build
+  end
 
   def new
     @post = Post.new
@@ -34,8 +37,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-
     @post.destroy
 
     redirect_to root_path, notice: I18n.t("posts.destroy.success")

@@ -9,3 +9,7 @@ en:
     destroy:
       success: "Post was successfully destroyed."
       failure: "Post was not destroyed."
+  comments:
+    create:
+      success: "Comment was successfully created."
+      failure: "Comment was not created."

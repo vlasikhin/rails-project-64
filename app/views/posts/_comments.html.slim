@@ -1,0 +1,11 @@
+- comment.children.latest.each do |comment|
+  br
+  .card[id="comment-#{comment.id}"]
+    .card-body
+      h5.card-title
+        = comment.user.username
+      h6.card-subtitle.mb-2.text-muted
+        = l(comment.created_at, format: :short)
+      p.card-text = comment.content
+      = render "posts/comment_form", comment: comment if user_signed_in?
+      = render "posts/comments", comment: comment if comment.children.any?
