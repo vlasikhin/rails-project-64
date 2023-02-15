@@ -1,0 +1,21 @@
+one:
+  content: first
+  user: edric
+  post: one
+
+with_comments:
+  content: this is comment with comments
+  user: edric
+  post: one
+
+nested:
+  content: commented comment
+  user: edric
+  post: one
+  ancestry: <%= ActiveRecord::FixtureSet.identify(:with_comments) %>
+
+deep_nested:
+  content: deep comment
+  user: edric
+  post: one
+  ancestry: <%= [ActiveRecord::FixtureSet.identify(:with_comments), ActiveRecord::FixtureSet.identify(:nested)].join('/') %>

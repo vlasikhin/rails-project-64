@@ -70,6 +70,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     airbrussh (1.4.1)
       sshkit (>= 1.6.1, != 1.7.0)
+    ancestry (4.2.0)
+      activerecord (>= 5.2.6)
     ast (2.4.2)
     bcrypt (3.1.18)
     bindex (0.8.1)
@@ -299,6 +301,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ancestry
   bootsnap
   capistrano (~> 3.17)
   capistrano-rails (~> 1.6)

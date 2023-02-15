@@ -17,7 +17,7 @@ nav.navbar.navbar-expand.navbar-dark.bg-dark.sticky-top
       .d-flex
         .btn-group
           - if signed_in?
-            = link_to current_user.name.empty? ? current_user.email : current_user.name, edit_user_registration_path, class: "btn btn-outline-secondary btn-sm"
+            = link_to current_user.username, edit_user_registration_path, class: "btn btn-outline-secondary btn-sm"
             = link_to t("auth.sign_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary btn-sm"
           - else
             = link_to t("auth.sign_up"), new_user_registration_path, class: "btn btn-outline-primary btn-sm"
