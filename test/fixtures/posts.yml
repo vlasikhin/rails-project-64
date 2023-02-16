@@ -1,17 +1,17 @@
 one:
   title: <%= [Faker::Books::Dune.title, Faker::Books::Dune.title].join(" ") %>
-  body: <%= [Faker::Books::Dune.quote, Faker::Books::Dune.quote].join(" ") %>
+  body: <%= Faker::Books::Dune.quote %>
   category: arrakis
   creator: edric
 
 two:
   title: <%= [Faker::Books::Dune.title, Faker::Books::Dune.title].join(" ") %>
-  body: <%= [Faker::Books::Dune.quote, Faker::Books::Dune.quote].join(" ") %>
+  body: <%= Faker::Books::Dune.quote %>
   category: arrakis
   creator: murbella
 
 three:
   title: <%= [Faker::Books::Dune.title, Faker::Books::Dune.title].join(" ") %>
-  body: <%= [Faker::Books::Dune.quote, Faker::Books::Dune.quote].join(" ") %>
+  body: <%= Faker::Books::Dune.quote %>
   category: grumman
   creator: murbella

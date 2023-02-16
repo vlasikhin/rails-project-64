@@ -19,6 +19,7 @@ gem "simple_form"
 gem "slim"
 gem "slim-rails"
 gem "sprockets-rails"
+gem "sqlite3"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]

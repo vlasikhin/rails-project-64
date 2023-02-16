@@ -7,9 +7,13 @@ development:
   <<: *default
   database: rails-project-64_development
 
+# test:
+#   <<: *default
+#   database: rails-project-64_test
+
 test:
-  <<: *default
-  database: rails-project-64_test
+  adapter: sqlite3
+  database: db/rails-project-64_test.sqlite3
 
 production:
   <<: *default
