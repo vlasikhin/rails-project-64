@@ -114,7 +114,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    error_highlight (0.5.1)
+    error_highlight (0.3.0)
     erubi (1.12.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
@@ -261,6 +261,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.0-arm64-darwin)
+    sqlite3 (1.6.0-x86_64-linux)
     sshkit (1.21.3)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -310,7 +312,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise
-  error_highlight (>= 0.4.0)
+  error_highlight (~> 0.3.0)
   faker
   jbuilder
   jsbundling-rails
@@ -329,6 +331,7 @@ DEPENDENCIES
   slim-rails
   slim_lint
   sprockets-rails
+  sqlite3
   stimulus-rails
   turbo-rails
   tzinfo-data
@@ -336,7 +339,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.2.0p0
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.4.3

@@ -8,19 +8,19 @@ p = @post.body
   - if !user_signed_in?
     i.bi.bi-hand-thumbs-up
   - elsif @user_like
-    = link_to post_like_path(@post, @user_like), class: "link-dark", data: { turbo_method: :delete } do
+    = link_to post_like_path(@post, @user_like), class: 'link-dark', data: { turbo_method: :delete } do
       i.bi.bi-hand-thumbs-up-fill
   - else
-    = link_to post_likes_path(@post), class: "link-dark", data: { turbo_method: :post } do
+    = link_to post_likes_path(@post), class: 'link-dark', data: { turbo_method: :post } do
       i.bi.bi-hand-thumbs-up
 
 p.lead#comment-section
-  span = t(".comments")
+  span = t('.comments')
   - if user_signed_in?
     = simple_form_for @comment, url: post_comments_path(@post) do |f|
       = f.input :content, as: :text, label: false
       = f.input :parent_id, as: :hidden, input_html: { value: nil }
-      = f.button :submit, class: "btn-primary mt-2"
+      = f.button :submit, class: 'btn-primary mt-2'
 
   - @comments.each do |comment|
     br
@@ -32,8 +32,8 @@ p.lead#comment-section
           = l(comment.created_at, format: :short)
         p.card-text = comment.content
 
-        = render "posts/comment_form", comment: comment if user_signed_in?
-        = render "posts/comments", comment: comment if comment.children.any?
+        = render 'posts/comment_form', comment: comment if user_signed_in?
+        = render 'posts/comments', comment: comment if comment.children.any?
 br
 - if current_user == @post.creator
   .row
@@ -41,13 +41,13 @@ br
       .col-md-8
       .col-md-4
         .btn-group
-          = link_to t("posts.edit"), edit_post_path(@post), class: "btn btn-outline-warning btn-sm"
-          = link_to t("posts.delete"), @post, data: { turbo_method: :delete }, class: "btn btn-outline-danger btn-sm"
-          = link_to "Back", posts_path, class: "btn btn-outline-primary btn-sm"
+          = link_to t('posts.edit'), edit_post_path(@post), class: 'btn btn-outline-warning btn-sm'
+          = link_to t('posts.delete'), @post, data: { turbo_method: :delete }, class: 'btn btn-outline-danger btn-sm'
+          = link_to 'Back', posts_path, class: 'btn btn-outline-primary btn-sm'
 - else
   .row
     .d-flex
       .col-md-10
       .col-md-2
         .btn-group
-          = link_to "Back", posts_path, class: "btn btn-primary btn-sm"
+          = link_to 'Back', posts_path, class: 'btn btn-primary btn-sm'
