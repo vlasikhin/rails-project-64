@@ -12,4 +12,8 @@ h1 Posts
           .ms-2.me-auto
             .fw-bold
               = link_to post.title, post
-            | Created by: #{post.creator.username}
+            p = post.body
+            br
+            p = t("likes_count", count: post.likes.count)
+            p
+              | Created by: #{post.creator.username}

@@ -35,3 +35,4 @@ en:
       comments: "Comments:"
     comment_form:
       response: "Response"
+  likes_count: "Likes: %{count}"

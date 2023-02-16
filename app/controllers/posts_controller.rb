@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def show
     @comments = @post.comments.roots.latest
     @comment = current_user&.comments&.build
+    @user_like = @post.likes.find_by(user: current_user)
   end
 
   def new

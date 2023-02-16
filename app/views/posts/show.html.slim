@@ -3,6 +3,16 @@ p style="color: green" = notice
 h1 = @post.title
 
 p = @post.body
+#likes-section
+  span.me-2 = @post.likes.count
+  - if !user_signed_in?
+    i.bi.bi-hand-thumbs-up
+  - elsif @user_like
+    = link_to post_like_path(@post, @user_like), class: "link-dark", data: { turbo_method: :delete } do
+      i.bi.bi-hand-thumbs-up-fill
+  - else
+    = link_to post_likes_path(@post), class: "link-dark", data: { turbo_method: :post } do
+      i.bi.bi-hand-thumbs-up
 
 p.lead#comment-section
   span = t(".comments")
@@ -21,6 +31,7 @@ p.lead#comment-section
         h6.card-subtitle.mb-2.text-muted.fs-6
           = l(comment.created_at, format: :short)
         p.card-text = comment.content
+
         = render "posts/comment_form", comment: comment if user_signed_in?
         = render "posts/comments", comment: comment if comment.children.any?
 br
