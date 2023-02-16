@@ -6,12 +6,12 @@ html
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
   body
-    = render "layouts/navbar"
+    = render 'layouts/navbar'
     br
-    = render "layouts/flash"
+    = render 'layouts/flash'
     .container
       .row.justify-content-md-center
         .col-md-10

@@ -15,6 +15,7 @@ test:
 
 lint:
 		bundle exec rubocop
+		bundle exec slim-lint app/views/
 
 # ci
 install:
