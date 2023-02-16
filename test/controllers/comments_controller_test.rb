@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -9,7 +9,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @parent_comment = post_comments(:one)
   end
 
-  test "#create" do
+  test '#create' do
     post_comment_params = {
       content: Faker::Lorem.sentence,
       parent_id: @parent_comment.id

@@ -9,11 +9,11 @@ class CommentsController < ApplicationController
     @comment.post = @post
 
     if @comment.save
-      flash[:success] = t(".success")
+      flash[:success] = t('.success')
       redirect_to @post
     else
       flash.now[:error] = @comment.errors.first.full_message
-      render "posts/show", status: :unprocessable_entity
+      render 'posts/show', status: :unprocessable_entity
     end
   end
 

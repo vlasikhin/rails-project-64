@@ -1,7 +1,7 @@
 require: rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 3.2
+  TargetRubyVersion: 3.1
   NewCops: enable
   SuggestExtensions: false
   Exclude:
@@ -10,23 +10,20 @@ AllCops:
     - 'tmp/**/*'
     - '.git/**/*'
     - 'bin/*'
-    - 'config/'
     - 'node_modules/**/*'
-    - 'config/**/*'
 Style/Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
-  Enabled: false
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  Enabled: true
 Style/ClassAndModuleChildren:
   Enabled: false
 Metrics/BlockLength:
   Enabled: true
   Exclude:
     - test/**/*
+    - 'config/**/*'
 Layout/LineLength:
-  Max: 150
+  Max: 160
 Metrics/MethodLength:
   Enabled: false
 Metrics/AbcSize:

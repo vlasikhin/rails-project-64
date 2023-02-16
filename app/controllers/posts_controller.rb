@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
@@ -23,24 +25,24 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post, notice: I18n.t("posts.create.success")
+      redirect_to @post, notice: I18n.t('posts.create.success')
     else
-      render :new, status: :unprocessable_entity, alert: I18n.t("posts.create.failure")
+      render :new, status: :unprocessable_entity, alert: I18n.t('posts.create.failure')
     end
   end
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: I18n.t("posts.update.success")
+      redirect_to @post, notice: I18n.t('posts.update.success')
     else
-      render :edit, status: :unprocessable_entity, alert: I18n.t("posts.update.failure")
+      render :edit, status: :unprocessable_entity, alert: I18n.t('posts.update.failure')
     end
   end
 
   def destroy
     @post.destroy
 
-    redirect_to root_path, notice: I18n.t("posts.destroy.success")
+    redirect_to root_path, notice: I18n.t('posts.destroy.success')
   end
 
   private
@@ -48,7 +50,7 @@ class PostsController < ApplicationController
   def set_creator
     set_post
 
-    redirect_to root_path, alert: I18n.t("posts.only_creator") unless @post.creator == current_user
+    redirect_to root_path, alert: I18n.t('posts.only_creator') unless @post.creator == current_user
   end
 
   def set_post
